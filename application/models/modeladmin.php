@@ -308,15 +308,11 @@ Class modeladmin extends CI_Model{
 
         ////Owner////
         public function get_totalorder(){
-            $data = $this->db->query("SELECT tanggal_order,COUNT(*) AS jumlah_harian
-            FROM tb_order WHERE tanggal_order=DATE(NOW())
-            GROUP BY tanggal_order");
+            $data = $this->db->query("SELECT * FROM tb_order WHERE tanggal_order=DATE(NOW())");
             return $data->num_rows();
         }
         public function get_transaksi_harian(){
-            $data = $this->db->query("SELECT tanggal,COUNT(*) AS jumlah_transaksi
-            FROM tb_transaksi WHERE tanggal=DATE(NOW())
-            GROUP BY tanggal");
+            $data = $this->db->query("SELECT* FROM tb_transaksi WHERE tanggal=DATE(NOW())");
             return $data->num_rows();
         }
         public function count_transaksi_owner(){
